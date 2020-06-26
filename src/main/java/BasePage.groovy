@@ -65,7 +65,12 @@ class BasePage {
         WebDriverWait wait = new WebDriverWait(driver, 5)
         List<WebElement> contactEls = []
         //click on the contact us link
-        driver.findElement(By.xpath(CONTACT_US_LINK)).click()
+
+        Actions act=new Actions(driver)
+        act.moveToElement(driver.findElement(By.xpath(CONTACT_US_LINK))).click().perform()
+        sleep(5000)
+
+        System.out.println('Sleeping...')
         WebElement formName =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(FORM_NAME_INPUT)))
         WebElement formEmail =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(FORM_EMAIL_INPUT)))
         WebElement formTextArea =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(FORM_TEXTAREA_INPUT)))

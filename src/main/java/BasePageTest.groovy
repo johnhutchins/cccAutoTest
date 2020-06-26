@@ -32,7 +32,7 @@ class BasePageTest {
 
     //needs refactor, but quick smoke test
     @Test
-    public void returnContacFormInputs(){
+    public void returnContactFormInputs(){
         BasePage basePage = new BasePage(ff)
         List<WebElement> contactElements = basePage.returnContactFormInputs()
 //        contactElements[1].click()
