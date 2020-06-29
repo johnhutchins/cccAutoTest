@@ -62,22 +62,12 @@ class BasePage {
     }
 
     public List<WebElement> returnContactFormInputs(){
-        WebDriverWait wait = new WebDriverWait(driver, 5)
-        List<WebElement> contactEls = []
-        //click on the contact us link
-
         Actions act=new Actions(driver)
         act.moveToElement(driver.findElement(By.xpath(CONTACT_US_LINK))).click().perform()
-        sleep(5000)
 
-        System.out.println('Sleeping...')
-        WebElement formName =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(FORM_NAME_INPUT)))
-        WebElement formEmail =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(FORM_EMAIL_INPUT)))
-        WebElement formTextArea =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(FORM_TEXTAREA_INPUT)))
-        contactEls.add(formName)
-        contactEls.add(formEmail)
-        contactEls.add(formTextArea)
-        return contactEls
+        List<WebElement> inputs = driver.findElements(By.xpath("//div[@id='give-us-a-shout']//input"))
+
+        return inputs
     }
 
     public String getStatCounterValues(){
@@ -85,6 +75,18 @@ class BasePage {
         WebElement s =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(STAT_COUNTER)))
         System.out.println(s)
         return s
+    }
+
+    public WebElement getWhoWeAreSection(){
+        return driver.findElement(By.xpath("//div[@id='who-we-are']"))
+    }
+
+    public WebElement getTestimonialSection(){
+        return driver.findElement(By.xpath("//div[@id='what-people-are-saying']"))
+    }
+
+    public List<WebElement> getSatisfactionScores(){
+        return driver.findElements(By.xpath("//span[@class='stat-counter']"))
     }
 }
 

@@ -30,18 +30,12 @@ class BasePageTest {
         assert basePage.getPhoneNumber() == '307.200.7224'
     }
 
-    //needs refactor, but quick smoke test
+    //making sure that contact inputs are visible.
     @Test
     public void returnContactFormInputs(){
         BasePage basePage = new BasePage(ff)
         List<WebElement> contactElements = basePage.returnContactFormInputs()
-//        contactElements[1].click()
-//        sleep(5000)
-        //click an input, then enter some data
-
-
-
-        assert contactElements.size() == 3
+        assert contactElements.size() > 3
     }
 
     @Test
@@ -50,4 +44,24 @@ class BasePageTest {
         basePage.getStatCounterValues()
     }
 
+    @Test
+    public void whoWeAreSectionIsDisplayed(){
+        BasePage basePage = new BasePage(ff)
+        WebElement who = basePage.getWhoWeAreSection()
+        assert who.isDisplayed()
+    }
+
+    @Test
+    public void testimonialSectionIsDisplayed(){
+        BasePage bp = new BasePage(ff)
+        WebElement testimonial = bp.getTestimonialSection()
+        assert testimonial.isDisplayed()
+    }
+
+    @Test
+    public void satisfactionScoresAreDisplayed(){
+        BasePage bp = new BasePage(ff)
+        List<WebElement> scores = bp.getSatisfactionScores()
+        assert scores.size() == 3
+    }
 }
