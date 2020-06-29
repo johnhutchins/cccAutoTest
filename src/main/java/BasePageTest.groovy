@@ -20,7 +20,14 @@ class BasePageTest {
     }
 
     @Test
-    public void clickTeamSection(){
+    public void logoIsDisplayed(){
+        BasePage bp = new BasePage(ff)
+        WebElement w = bp.getCompanyLogo()
+        assert w.isDisplayed()
+    }
+
+    @Test
+    public void teamSectionIsDisplayed(){
         System.out.println("this should click the team section")
     }
 
@@ -30,18 +37,18 @@ class BasePageTest {
         assert basePage.getPhoneNumber() == '307.200.7224'
     }
 
+    @Test
+    public void ensureEmailIsCorrect(){
+        BasePage bp = new BasePage(ff)
+        assert bp.getEmailAddress() == 'info@callawaycloudconsulting.com'
+    }
+
     //making sure that contact inputs are visible.
     @Test
-    public void returnContactFormInputs(){
+    public void contactFormIsDisplayed(){
         BasePage basePage = new BasePage(ff)
         List<WebElement> contactElements = basePage.returnContactFormInputs()
         assert contactElements.size() > 3
-    }
-
-    @Test
-    public void ensureStatCounterHasValue(){
-        BasePage basePage = new BasePage(ff)
-        basePage.getStatCounterValues()
     }
 
     @Test

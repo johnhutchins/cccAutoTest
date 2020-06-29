@@ -33,10 +33,8 @@ class BasePage {
         this.driver = driver
     }
 
-    public String getPageHeader(){
-        WebDriverWait wait = new WebDriverWait(driver, 5)
-        WebElement s =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(HEADER_H1)))
-        return s.getText()
+    public WebElement getCompanyLogo(){
+        return driver.findElement(By.xpath("//img[@class='logo']"))
     }
 
     public void clickOnSection(){
@@ -47,6 +45,10 @@ class BasePage {
         WebDriverWait wait = new WebDriverWait(driver, 5)
         WebElement s =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(PHONE_LINK)))
         return s.getText()
+    }
+
+    public String getEmailAddress(){
+        return driver.findElement(By.xpath("//html/body/div/div[2]/div[2]/div/div[1]/div/div[1]/a")).getText().toLowerCase()
     }
 
     public void clickEmail(){
@@ -68,13 +70,6 @@ class BasePage {
         List<WebElement> inputs = driver.findElements(By.xpath("//div[@id='give-us-a-shout']//input"))
 
         return inputs
-    }
-
-    public String getStatCounterValues(){
-        WebDriverWait wait = new WebDriverWait(driver, 5)
-        WebElement s =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(STAT_COUNTER)))
-        System.out.println(s)
-        return s
     }
 
     public WebElement getWhoWeAreSection(){
