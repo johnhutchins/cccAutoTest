@@ -88,5 +88,9 @@ class BasePage {
     public List<WebElement> getSatisfactionScores(){
         return driver.findElements(By.xpath("//span[@class='stat-counter']"))
     }
+
+    public WebElement partnersAreDisplayed(){
+        return driver.findElement(By.xpath("//div[@class='company-logo-banner']"))
+    }
 }
 

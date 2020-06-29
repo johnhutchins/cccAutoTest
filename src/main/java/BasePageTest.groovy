@@ -64,4 +64,11 @@ class BasePageTest {
         List<WebElement> scores = bp.getSatisfactionScores()
         assert scores.size() == 3
     }
+
+    @Test
+    public void partnersSectionIsDisplayed(){
+        BasePage bp = new BasePage(ff)
+        WebElement we = bp.partnersAreDisplayed()
+        assert we.isDisplayed()
+    }
 }
