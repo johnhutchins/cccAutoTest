@@ -8,23 +8,9 @@ import org.openqa.selenium.support.ui.WebDriverWait
 
 class BasePage {
     private final String BASE_URL = 'https://www.callawaycloud.com'
-    private final String HOME_LINK = '//*[@id="nav"]/li[1]/a'
-    private final String ABOUT_US_LINK = '//*[@id="nav"]/li[2]/a'
-    private final String TESTIMONIALS_LINK = '//*[@id="nav"]/li[3]/a'
-    private final String TESTIMONIALS_SECTION = '#testimonials'
-    private final String TESTIMONIALS_NEXT
-    private final String TESTIMONIALS_PREVIOUS
-    private final String TESTIMONIAL_CLIENT_SECTION = '.owl-wrapper'
     private final String TEAM_LINK = '//*[@id="nav"]/li[4]/a'
     private final String CONTACT_US_LINK = '//*[@id="nav"]/li[5]/a'
-    private final String CONTACT_FORM = '.contact-form'
-    private final String STAT_COUNTER = '.stat-counter'
     private final String PHONE_LINK = '//*[@id="give-us-a-shout"]/div/div[1]/div/div[2]/a'
-
-
-    private final String FORM_NAME_INPUT = '//*[@id="wpcf7-f49-o1"]/form/div[2]/span[2]/span/input'
-    private final String FORM_EMAIL_INPUT = '//*[@id="wpcf7-f49-o1"]/form/div[3]/span[2]/span/input'
-    private final String FORM_TEXTAREA_INPUT = '//*[@id="wpcf7-f49-o1"]/form/p[1]/span[2]/span/textarea'
 
     private WebDriver driver
 
@@ -49,18 +35,6 @@ class BasePage {
 
     public String getEmailAddress(){
         return driver.findElement(By.xpath("//html/body/div/div[2]/div[2]/div/div[1]/div/div[1]/a")).getText().toLowerCase()
-    }
-
-    public void clickEmail(){
-
-    }
-
-    public void clickMap(){
-
-    }
-
-    public void sendEmailFromContactForm(){
-
     }
 
     public List<WebElement> returnContactFormInputs(){
