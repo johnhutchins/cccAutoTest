@@ -43,7 +43,6 @@ class BasePageTest {
         assert bp.getEmailAddress() == 'info@callawaycloudconsulting.com'
     }
 
-    //making sure that contact inputs are visible.
     @Test
     public void contactFormIsDisplayed(){
         BasePage basePage = new BasePage(ff)
