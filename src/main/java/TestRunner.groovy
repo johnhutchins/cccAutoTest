@@ -8,6 +8,8 @@ public class TestRunner {
         for (Failure failure : result.getFailures()) {
             System.out.println(failure.toString())
         }
+        SummaryGeneratingListener sum = new SummaryGeneratingListener()
+        //sum.getSummary()
         System.out.println(result.wasSuccessful())
     }
 }
